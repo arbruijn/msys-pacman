@@ -1131,7 +1131,7 @@ int main(int argc, char *argv[])
 	}
 
 	/* check if we have sufficient permission for the requested operation */
-	if(myuid > 0 && needs_root()) {
+	if(0 && myuid > 0 && needs_root()) {
 		pm_printf(ALPM_LOG_ERROR, _("you cannot perform this operation unless you are root.\n"));
 		cleanup(EXIT_FAILURE);
 	}
