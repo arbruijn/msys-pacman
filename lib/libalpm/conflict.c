@@ -523,7 +523,7 @@ alpm_list_t *_alpm_db_find_fileconflicts(alpm_handle_t *handle,
 
 			pfile_isdir = path[pathlen - 1] == '/';
 			if(pfile_isdir) {
-				if(S_ISDIR(lsbuf.st_mode)) {
+				if(S_ISDIR(lsbuf.st_mode) || S_ISLNK(lsbuf.st_mode)) {
 					_alpm_log(handle, ALPM_LOG_DEBUG, "file is a directory, not a conflict\n");
 					continue;
 				}
