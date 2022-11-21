@@ -651,7 +651,7 @@ int _alpm_run_chroot(alpm_handle_t *handle, const char *cmd, char *const argv[],
 
 		/* use fprintf instead of _alpm_log to send output through the parent */
 		if(chroot(handle->root) != 0) {
-			fprintf(stderr, _("could not change the root directory (%s)\n"), strerror(errno));
+			fprintf(stderr, _("could not change the root directory to %s to run %s (%s)\n"), handle->root, cmd, strerror(errno));
 			exit(1);
 		}
 		if(chdir("/") != 0) {
